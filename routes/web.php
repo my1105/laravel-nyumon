@@ -12,3 +12,5 @@ Route::get('/diary', function () {
 }); 
 
 Route::get('/diary', [DiaryController::class, 'index'])->name('diary.index');
+
+Route::get('/diary', [DiaryController::class, 'index']);

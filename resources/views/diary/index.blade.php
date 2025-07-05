@@ -1,4 +1,3 @@
-<!-- resources/views/diary/index.blade.php -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -6,7 +5,12 @@
   <title>Diary</title>
 </head>
 <body>
-  <p>Hello, {{ $name }}!</p>
+@foreach($diaries as $diary)
+<div>
+  <div>{{ $diary->date }}</div>
+  <div>{{ $diary->title }}</div>
+</div>
+@endforeach
 </body>
 </html>
 
