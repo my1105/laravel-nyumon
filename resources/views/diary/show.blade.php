@@ -37,6 +37,11 @@
   <a href="{{ route('diary.edit', $diary->id) }}">
     <button>編集</button>
   </a>
+  <form method="post" action="{{ route('diary.destroy', $diary->id) }}">
+  @csrf
+  @method('delete')
+  <button type="submit" onclick="return confirm('本当に削除しますか？')">削除</button>
+</form>
 </div>
 
 </body>

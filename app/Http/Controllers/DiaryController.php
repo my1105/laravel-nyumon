@@ -70,4 +70,17 @@ public function update(Request $request, $id)
 
     return back()->with('message', '更新しました');
 }
+
+public function destroy(Request $request)
+{
+    $id = $request->route('id'); // URLからIDを取得
+    $diary = Diary::find($id);   // 対象データを検索
+
+    if ($diary) {
+        $diary->delete();        // データ削除
+    }
+
+    return redirect()->route('diary.index')->with('message', '削除しました'); // 一覧にリダイレクト
+}
+
 }
