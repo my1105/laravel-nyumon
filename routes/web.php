@@ -11,6 +11,8 @@ Route::get('/diary', function () {
     return 'Hello!';
 }); 
 
-Route::get('/diary', [DiaryController::class, 'index'])->name('diary.index');
-
 Route::get('/diary', [DiaryController::class, 'index']);
+
+Route::get('/diary', [DiaryController::class, 'index']);// 一覧表示
+Route::get('/diary/create', [DiaryController::class, 'create'])->name('diary.create'); // 入力フォーム表示
+Route::post('/diary', [DiaryController::class, 'store'])->name('diary.store');         // 日記保存
