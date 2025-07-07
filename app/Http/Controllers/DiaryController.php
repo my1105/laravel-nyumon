@@ -37,4 +37,15 @@ public function store(Request $request)
     // フォームに戻って成功メッセージ表示
     return back()->with('message', '保存しました');
 }
+
+public function show($id)
+{
+    $diary = Diary::find($id);
+
+    if (!$diary) {
+        abort(404); // 該当IDがなければ404エラー
+    }
+
+    return view('diary.show', compact('diary'));
+}
 }
