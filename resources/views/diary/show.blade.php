@@ -33,5 +33,11 @@
   <h1>{{ $diary->title }}</h1>
   <div class="date">{{ $diary->date }}</div>
   <div class="body">{{ $diary->body }}</div>
+  <div>
+  <a href="{{ route('diary.edit', $diary->id) }}">
+    <button>編集</button>
+  </a>
+</div>
+
 </body>
 </html>

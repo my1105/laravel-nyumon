@@ -48,4 +48,26 @@ public function show($id)
 
     return view('diary.show', compact('diary'));
 }
+
+// 編集画面表示
+public function edit($id)
+{
+    $diary = Diary::find($id);
+    return view('diary.edit', compact('diary'));
+}
+
+// 更新処理
+public function update(Request $request, $id)
+{
+    $diary = Diary::find($id);
+
+    $validated = $request->validate([
+        'title' => 'required|max:20',
+        'body' => 'required|max:400',
+    ]);
+
+    $diary->update($validated);
+
+    return back()->with('message', '更新しました');
+}
 }

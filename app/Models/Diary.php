@@ -9,4 +9,6 @@ class Diary extends Model
 {
     /** @use HasFactory<\Database\Factories\DiaryFactory> */
     use HasFactory;
+
+    protected $fillable = ['title', 'body', 'date'];
 }
